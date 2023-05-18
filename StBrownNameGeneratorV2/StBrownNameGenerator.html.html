@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <title>St Brown Name Generator</title>
 
     <style>
-        /*Temp Font Family*/html{font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
-        body, .page {
+        /*Temp Font Family*/
+        html {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body,
+        .page {
             margin: 0;
         }
-        .txt-title{font-size:26px;}#name{font-size:36px;}.txt-description{font-size:16px;}
 
-        .page{
+        .txt-title {
+            font-size: 26px;
+        }
+
+        #name {
+            font-size: 36px;
+        }
+
+        .txt-description {
+            font-size: 16px;
+        }
+
+        .page {
             width: 100vw;
             height: 100vh;
 
             background-image: url("../StBrownGenerator/imgs/Field-BG.jpg");
             background-size: cover;
         }
-        .flexbox-container{
+
+        .flexbox-container {
             width: 100%;
             height: 100%;
 
@@ -27,7 +45,8 @@
             justify-content: center;
             text-align: center;
         }
-        .generator-box{
+
+        .generator-box {
             width: 90vw;
             height: auto;
             padding: 20px;
@@ -35,16 +54,19 @@
             background-color: #fff;
             border-radius: 10px;
         }
-        .txt-title{
+
+        .txt-title {
             color: #007dc5;
-            font-size:clamp(24px, 4vw, 32px);
+            font-size: clamp(24px, 4vw, 32px);
         }
-        .txt-description{
-            color:#2b2b2b;
+
+        .txt-description {
+            color: #2b2b2b;
             font-size: clamp(16px, 3vw, 18px);
             margin: 40px 15%;
         }
-        .name-box{
+
+        .name-box {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -56,14 +78,16 @@
             border-radius: 10px;
             border: #007dc5 solid 2px;
         }
-        #name{
+
+        #name {
             margin: 0;
 
-            flex-basis:90%;
+            flex-basis: 90%;
             color: #7e7e7e;
-            font-size:clamp(32px, 5vw, 40px);
+            font-size: clamp(32px, 5vw, 40px);
         }
-        .btn-generate{
+
+        .btn-generate {
             font-size: 16px;
             margin-top: 20px;
             padding: 15px 50px;
@@ -74,65 +98,74 @@
             background-color: #007dc5;
             color: #fff;
         }
-        .btn-generate:hover{
-            cursor:pointer;
+
+        .btn-generate:hover {
+            cursor: pointer;
             background-color: #00659f;
         }
-        .share-box{
+
+        .share-box {
             display: flex;
             flex-direction: row;
             justify-content: center;
         }
-        .btn-share{
+
+        .btn-share {
             flex-basis: 15%;
-            
+
             margin: 50px 5px 0 5px;
             padding: 5px 10px;
-            
+
             border-radius: 10px;
             border: none;
 
             background-color: lightskyblue;
-            color:#fff;
+            color: #fff;
         }
-        .btn-share:hover{
-            cursor:pointer;
-            background-color:#5fbbf5;
+
+        .btn-share:hover {
+            cursor: pointer;
+            background-color: #5fbbf5;
         }
-        .btn-clear{
+
+        .btn-clear {
             text-align: center;
             font-size: 20px;
-            margin:auto;
+            margin: auto;
 
             height: 35px;
             width: 35px;
 
-            background-color:#7e7e7e;
-            color:#fff;
+            background-color: #7e7e7e;
+            color: #fff;
             border: none;
             border-radius: 50%;
         }
-        .btn-clear:hover{
+
+        .btn-clear:hover {
             cursor: pointer;
-            background-color:#5d5d5d;
+            background-color: #5d5d5d;
         }
-        @media (min-width: 601px){
-            .generator-box{
-            width: 75vw;
-            padding: 20px;
+
+        @media (min-width: 601px) {
+            .generator-box {
+                width: 75vw;
+                padding: 20px;
+            }
         }
+
+        @media (min-width: 901px) {
+            .generator-box {
+                width: 60vw;
+                padding: 20px;
+            }
         }
-        @media (min-width: 901px){
-            .generator-box{
-            width: 60vw;
-            padding: 20px;
-        }
-        }
-        @media (min-width: 1250px){
-            .generator-box{
-            width: 40vw;
-            padding: 20px;
-        }
+
+        @media (min-width: 1250px) {
+            .generator-box {
+                width: 40vw;
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -146,9 +179,9 @@
                 <p class="txt-description">Press the buton to generate a random name that is inspired by the St. Brown brothers!</p>
                 <div class="name-box">
                     <p class="" id="name">Generate Name Here</p>
-                    <button onclick ="Clear()" class="btn-clear" title="Clear">x</button>
+                    <button onclick="Clear()" class="btn-clear" title="Clear">x</button>
                 </div>
-                <button onclick="generate()" class="btn-generate">Generate</button>
+                <button onclick="btnClick()" class="btn-generate">Generate</button>
                 <div class="share-box">
                     <button class="btn-share">Share</button>
                     <button class="btn-share">Share</button>
@@ -158,18 +191,53 @@
         </div>
 
         <script>
-            var adjective = ["Excited", "Anxious", "Overweight", "Demonic", "Jumpy", "Misunderstood", "Squashed", "Gargantuan","Broad", "Crooked", "Curved", "Deep", "Even","Excited", "Anxious", "Overweight", "Demonic", "Jumpy", "Misunderstood", "Squashed", "Gargantuan","Broad", "Crooked", "Curved", "Deep", "Even", "Flat", "Hilly", "Jagged", "Round", "Shallow", "Square", "Steep", "Straight", "Thick", "Thin", "Cooing", "Deafening", "Faint", "Harsh", "High-pitched", "Hissing", "Hushed", "Husky", "Loud", "Melodic", "Moaning", "Mute", "Noisy", "Purring", "Quiet", "Raspy", "Screeching", "Shrill", "Silent", "Soft", "Squeaky", "Squealing", "Thundering", "Voiceless", "Whispering"] 
-            var object = ["Taco", "Operating System", "Sphere", "Watermelon", "Cheeseburger", "Apple Pie", "Spider", "Dragon", "Remote Control", "Soda", "Barbie Doll", "Watch", "Purple Pen", "Dollar Bill", "Stuffed Animal", "Hair Clip", "Sunglasses", "T-shirt", "Purse", "Towel", "Hat", "Camera", "Hand Sanitizer Bottle", "Photo", "Dog Bone", "Hair Brush", "Birthday Card"]
-            var list;
+            const egyptian = ["Amon-Ra", "Amun-Re", "Amen-Ra", "Anubis", "Bast", "Geb", "Hathor", "Horus", "Heru", "Aset", "Ma’at", "Neith", "Nephthys", "Nut", "Osiris", "Ptah", "Sekhmet", "Seth", "Sobek", "Thoth", "Ramses", "Ramesses", "Amenhotep", "Tutankhamun", "Akhenaten", "Djoser", "Khufu", "Hatshepsut"];
+            const common = ["Ethan", "Logan", "Sebastian", "Julian", "Dylan", "Nathan", "Ryan", "Adrian", "Rowan", "Nolan", "Allan", "Jonathan", "Tristan", "Evan", "Bryan", "Brian", "Donovan", "Sullivan", "Fabian", "Esteban", "Dorian", "Harlan", "Caspian", "Morgan", "Devan", "Antwan"];
+            const letter = ["A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."];
+            const saint = ["St. Brown", "St. Smith", "St. Johnson", "St. Williams", "St. Jones", "St. Garcia", "St. Miller", "St. Rodriguez", "St. Davis", "St. Wilson", "St. Anderson", "St. Thomas", "St. Martinez", "St. Lopez", "St. Taylor", "St. Moore", "St. Jackson", "St. Martin", "St. Lee", "St. White", "St. Thompson", "St. Robinson", "St. Walker", "St. Young", "St. Scott", "St. Lewis", "St. Hill", "St. Adams", "St. Hall", "St. Green", "St. Mitchell", "St. Carter", "St. Turner", "St. Edwards"];
+            const egyptianLength = egyptian.length;
+            const commonLength = common.length;
+            const letterLength = letter.length;
+            const saintLength = saint.length;
+            // Get element for btnClick and Clear functions
+            const name = document.getElementById("name");
 
-            function generate() {
-                document.getElementById("name").style.color = "#2b2b2b";
-                document.getElementById("name").innerHTML = adjective[Math.floor(Math.random() * adjective.length)] + " " + object[Math.floor(Math.random() * object.length)];;;
+            function btnClick() {
+                name.style.color = "#2b2b2b";
+                name.innerHTML = generate();
             }
 
-            function Clear(){
-                document.getElementById("name").style.color = "#7e7e7e";
-                document.getElementById("name").innerHTML = "Generate A Name";
+            function getRandomIndex(length) {
+                return Math.floor(Math.random() * length);
+            }
+
+            function generate() {
+                const randomEgyptianIndex = getRandomIndex(egyptianLength);
+                var randomSecondEgyptianIndex = getRandomIndex(egyptianLength);
+                // Ensure the second index is always different than the first
+                while (randomSecondEgyptianIndex === randomEgyptianIndex) {
+                    randomSecondEgyptianIndex = getRandomIndex(egyptianLength);
+                }
+                const randomCommonIndex = getRandomIndex(commonLength);
+                const randomLetterIndex = getRandomIndex(letterLength);
+                const randomSaintIndex = getRandomIndex(saintLength);
+
+                const nameParts = [
+                    // Use the random index to pick a name from each array
+                    egyptian[randomEgyptianIndex],
+                    common[randomCommonIndex],
+                    egyptian[randomSecondEgyptianIndex],
+                    letter[randomLetterIndex],
+                    saint[randomSaintIndex]
+                ];
+
+                const generatedName = nameParts.join(" ");
+                return generatedName;
+            }
+
+            function Clear() {
+                name.style.color = "#7e7e7e";
+                name.innerHTML = "Generate A Name";
             }
         </script>
     </div>
